@@ -10,7 +10,7 @@ const Header = () => (
   <div className="header-container" >
     <AppBar
       title="Should I take I66?"
-      className="header"
+      className="app-header"
     />
   </div>
 );

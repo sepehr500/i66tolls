@@ -30,7 +30,7 @@ export default class TollContainer extends Component {
     const overClass = this.isOver(this.state.dollars, this.state.avg);
     return (
       <div className="toll-container">
-        <div className="toll-container-top">
+        <div className={`toll-container-top ${overClass}`}>
           <h1>{this.props.mainText}</h1>
         </div>
         <div className="toll-container-bottom">
