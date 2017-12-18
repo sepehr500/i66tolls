@@ -4,7 +4,7 @@ import EbToll from '../components/EbToll';
 import WbToll from '../components/WbToll';
 import WeekEnd from '../components/WeekEnd';
 import TollInfo from '../components/TollInfo';
-import { curTime, isWeekend, isCurWest, isNextWest, isNextEast } from '../util/utility';
+import { curTime, isWeekend, isCurWest, isNextWest, isNextEast, isCurEast } from '../util/utility';
 
 const style = {
   backgroundColor: '#0060e8',
@@ -19,11 +19,13 @@ export default class IndexPage extends Component {
   constructor(props) {
     super(props);
     const ct = curTime();
+    console.log(ct);
+    console.log(isNextWest(ct));
+    console.log(isNextEast(ct));
+    console.log(isCurEast(ct));
+    console.log(isCurWest(ct));
+    console.log(isWeekend(ct));
     this.state = { dir: isCurWest(ct) ? 'w' : 'e' };
-  }
-
-  componentDidMount() {
-
   }
 
   handleChange = (dir) => {
@@ -32,7 +34,6 @@ export default class IndexPage extends Component {
 
   render() {
     const ct = curTime();
-    const weekend = isWeekend(ct);
     return (
       <div className="toll-column">
         <Tabs onChange={this.handleChange} value={this.state.dir} inkBarStyle={inkBarStyle}>
@@ -48,11 +49,11 @@ export default class IndexPage extends Component {
           />
         </Tabs>
         {
-          weekend && WeekEnd()
+          isWeekend(ct) && <WeekEnd />
         }
-        {this.state.dir === 'w' && (isNextWest(ct) || weekend) ? TollInfo({ dir: 'w' }) : null}
-        {this.state.dir === 'e' && (isNextEast(ct) || weekend) ? TollInfo({ dir: 'e' }) : null}
-        {this.state.dir === 'e' ? EbToll() : WbToll()}
+        {this.state.dir === 'w' ? <TollInfo dir="w" active={isCurWest(ct)} /> : null}
+        {this.state.dir === 'e' ? <TollInfo dir="e" active={isCurEast(ct)} /> : null}
+        {this.state.dir === 'e' ? <EbToll /> : <WbToll />}
       </div>);
   }
 }
