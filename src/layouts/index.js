@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-import './index.css';
+import AppBar from 'material-ui/AppBar';
+import './index.scss';
 
 const Header = () => (
   <div className="header-container" >
-    <div className="header">
-      <h1>
-          Current I66 Tolls
-      </h1>
-    </div>
+    <AppBar
+      title="Should I take I66?"
+      className="header"
+    />
   </div>
 );
 
