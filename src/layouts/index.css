@@ -129,6 +129,10 @@ button{
   color: rgb(199, 30, 30)
 }
 
+.over-top {
+  background:rgb(199, 30, 30) 
+}
+
 /* .fade-enter {
   opacity: 0.01;
 }

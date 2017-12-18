@@ -57,8 +57,3 @@ export default class IndexPage extends Component {
       </div>);
   }
 }
-
-
-// <TollContainer mainText="Washington to Beltway" route="wb/washington/belt" />
-// <TollContainer mainText="Beltway to Washington" route="eb/belt/washington" />
-// <TollContainer mainText="Dulles to Washington" route="eb/dulles/washington" />
