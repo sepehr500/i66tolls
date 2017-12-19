@@ -5,13 +5,14 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "firebase": "^4.8.0",
-    "gatsby": "^1.9.127",
-    "gatsby-link": "^1.6.30",
+    "gatsby": "^1.9.142",
+    "gatsby-link": "^1.6.32",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-sass": "^1.0.15",
     "material-ui": "^0.20.0",
-    "moment": "^2.19.4",
-    "ramda": "^0.25.0"
+    "moment": "^2.20.0",
+    "ramda": "^0.25.0",
+    "react-transition-group": "^1.2.1"
   },
   "keywords": [
     "gatsby"
@@ -31,6 +32,6 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
-    "prettier": "^1.8.2"
+    "prettier": "^1.9.2"
   }
 }

@@ -24,7 +24,7 @@ export default class TollContainer extends Component {
   }
 
   dollarsToText = dollars => `$${dollars.toFixed(2)}`
-  isOver = (price, avg) => (price + 0.50 > avg ? 'over' : '')
+  isOver = (price, avg) => (price + 0.50 > avg && avg ? 'over' : '')
 
   render() {
     const overClass = this.isOver(this.state.dollars, this.state.avg);

@@ -32,7 +32,7 @@ button{
 }
 
 .toll-column > div {
-  margin-bottom: 35px;
+  margin-bottom: 5px;
 }
 
 .toll-container {
@@ -111,6 +111,7 @@ button{
   text-align: center;
   color: white;
   background-color: $main-green;
+  margin-bottom: 40px;
 }
 
 .warning {
@@ -141,7 +142,7 @@ button{
 }
 
 
-/* .fade-enter {
+ .fade-enter {
   opacity: 0.01;
 }
 
@@ -157,7 +158,7 @@ button{
 .fade-leave-active {
   opacity: 0;
   transition: opacity 0.5s;
-} */
+} 
 
 @media screen and (max-width: 600px){
   .main {
@@ -175,5 +176,10 @@ button{
 
   .main-container {
     font-size: 12px;
+  }
+
+  button > div {
+    font-size: 85% !important;
+    font-weight: 800;
   }
 }

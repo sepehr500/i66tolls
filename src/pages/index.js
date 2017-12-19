@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
+import { CSSTransitionGroup, CSSTransition } from 'react-transition-group';
 import EbToll from '../components/EbToll';
 import WbToll from '../components/WbToll';
 import WeekEnd from '../components/WeekEnd';
@@ -36,7 +37,7 @@ export default class IndexPage extends Component {
     const ct = curTime();
     return (
       <div className="toll-column">
-        <Tabs onChange={this.handleChange} value={this.state.dir} inkBarStyle={inkBarStyle}>
+        <Tabs className="tab-button-size" onChange={this.handleChange} value={this.state.dir} inkBarStyle={inkBarStyle}>
           <Tab
             style={style}
             value="e"
@@ -51,9 +52,15 @@ export default class IndexPage extends Component {
         {
           isWeekend(ct) && <WeekEnd />
         }
-        {this.state.dir === 'w' ? <TollInfo dir="w" active={isCurWest(ct)} /> : null}
-        {this.state.dir === 'e' ? <TollInfo dir="e" active={isCurEast(ct)} /> : null}
-        {this.state.dir === 'e' ? <EbToll /> : <WbToll />}
+        <CSSTransitionGroup
+          transitionName="fade"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={0}
+        >
+          {this.state.dir === 'w' ? <TollInfo key={1} dir="w" active={isCurWest(ct)} /> : null}
+          {this.state.dir === 'e' ? <TollInfo key={2} dir="e" active={isCurEast(ct)} /> : null}
+          {this.state.dir === 'e' ? <EbToll key={3} /> : <WbToll key={4} />}
+        </CSSTransitionGroup>
       </div>);
   }
 }
