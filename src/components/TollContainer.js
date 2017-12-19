@@ -10,7 +10,19 @@ export default class TollContainer extends Component {
 
   componentWillMount() {
     const fb = getFirebase();
-    fb.database().ref(`${this.props.route}/tolls`).orderByKey().limitToLast(1)
+    // Get current toll if currently a toll time
+    if (this.props.current) {
+      this.getCurrentToll(this.props.route, fb);
+    } else {
+      this.setState({ relativeTime: '1 second ago' });
+    }
+    fb.database().ref(`${this.props.route}/meta`).on('value', (s) => {
+      this.setState({ avg: s.val().avg.toFixed(2) });
+    });
+  }
+
+  getCurrentToll = (route, fb) => {
+    fb.database().ref(`${route}/tolls`).orderByKey().limitToLast(1)
       .on('value', (snapshot) => {
         const val = snapshot.val();
         const timestamp = parseInt(Object.keys(val)[0]);
@@ -18,12 +30,10 @@ export default class TollContainer extends Component {
         const dollars = Object.values(val)[0].price;
         this.setState({ dollars, relativeTime });
       });
-    fb.database().ref(`${this.props.route}/meta`).on('value', (s) => {
-      this.setState({ avg: s.val().avg.toFixed(2) });
-    });
   }
 
   dollarsToText = dollars => `$${dollars.toFixed(2)}`
+
   isOver = (price, avg) => (price + 0.50 > avg && avg ? 'over' : '')
 
   render() {

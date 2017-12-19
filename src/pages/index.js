@@ -59,7 +59,7 @@ export default class IndexPage extends Component {
         >
           {this.state.dir === 'w' ? <TollInfo key={1} dir="w" active={isCurWest(ct)} /> : null}
           {this.state.dir === 'e' ? <TollInfo key={2} dir="e" active={isCurEast(ct)} /> : null}
-          {this.state.dir === 'e' ? <EbToll key={3} /> : <WbToll key={4} />}
+          {this.state.dir === 'e' ? <EbToll key={3} current={isCurEast(ct)} /> : <WbToll key={4} current={isCurWest(ct)} />}
         </CSSTransitionGroup>
       </div>);
   }
