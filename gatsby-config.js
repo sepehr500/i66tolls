@@ -29,7 +29,7 @@ module.exports = {
         short_name: 'shoulditakei66',
         start_url: '/',
         background_color: '#308446',
-        theme_color: '#308446;',
+        theme_color: 'green',
         display: 'minimal-ui',
         icons: [
           {
