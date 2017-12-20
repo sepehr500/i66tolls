@@ -1,20 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 import './index.scss';
 import image from './I66.png';
 
-const Header = () => (
-  <div className="header-container" >
-    <AppBar
-      title="Should I take I66?"
-      className="app-header"
-    />
-  </div>
-);
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+  }
+
+  handleToggle = () => this.setState({ open: !this.state.open });
+
+  handleClose = () => this.setState({ open: false });
+
+  render() {
+    return (
+      <div className="header-container" >
+        <AppBar
+          title="Should I take I66?"
+          className="app-header"
+          onLeftIconButtonClick={this.handleToggle}
+        />
+        <Drawer
+          onRequestChange={open => this.setState({ open })}
+          open={this.state.open}
+          docked={false}
+        >
+          <MenuItem containerElement={<Link to="/" />} onClick={this.handleClose}>Home</MenuItem>
+          <MenuItem containerElement={<Link to="/about/" />} onClick={this.handleClose}>About</MenuItem>
+        </Drawer>
+      </div>);
+  }
+}
 
 const TemplateWrapper = ({ children }) => (
   <MuiThemeProvider>
@@ -22,8 +45,8 @@ const TemplateWrapper = ({ children }) => (
       <Helmet
         title="Should I take I66"
         meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'I66 Toll Viewer' },
+        { name: 'keywords', content: 'I66, Toll, Time' },
       ]}
       >
         <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
