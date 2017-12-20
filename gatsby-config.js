@@ -33,8 +33,18 @@ module.exports = {
         display: 'minimal-ui',
         icons: [
           {
-            src: './src/layouts/I66.png',
-            sizes: '72x72 96x96 128x128 256x256',
+            // Everything in /static will be copied to an equivalent
+            // directory in /public during development and build, so
+            // assuming your favicons are in /static/favicons,
+            // you can reference them here
+            src: '/favicons/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
           },
         ],
       },
