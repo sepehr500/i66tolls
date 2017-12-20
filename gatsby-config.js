@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'What\'s the cost of I66',
   },
-  plugins: ['gatsby-plugin-react-helmet', 'gatsby-plugin-sass',
+  plugins: ['gatsby-plugin-offline', 'gatsby-plugin-react-helmet', 'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-favicon',
       options: {
