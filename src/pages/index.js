@@ -57,9 +57,9 @@ export default class IndexPage extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={0}
         >
-          {this.state.dir === 'w' ? <TollInfo key={1} dir="w" active={isCurWest(ct)} /> : null}
-          {this.state.dir === 'e' ? <TollInfo key={2} dir="e" active={isCurEast(ct)} /> : null}
-          {this.state.dir === 'e' ? <EbToll key={3} current={isCurEast(ct)} /> : <WbToll key={4} current={isCurWest(ct)} />}
+          {this.state.dir === 'w' ? <TollInfo key={1} dir="w" active={isCurWest(ct) && !isWeekend(ct)} /> : null}
+          {this.state.dir === 'e' ? <TollInfo key={2} dir="e" active={isCurEast(ct) && !isWeekend(ct)} /> : null}
+          {this.state.dir === 'e' ? <EbToll key={3} current={isCurEast(ct) && !isWeekend(ct)} /> : <WbToll key={4} current={isCurWest(ct) && !isWeekend(ct)} />}
         </CSSTransitionGroup>
       </div>);
   }
