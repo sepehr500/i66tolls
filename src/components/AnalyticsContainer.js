@@ -5,6 +5,10 @@ import { drop } from 'ramda';
 import moment from 'moment';
 
 export default class AnalyticsContainer extends Component {
+  defaultProps = {
+    drop: 0,
+  }
+
   state = {
     data: [],
   }
@@ -19,7 +23,7 @@ export default class AnalyticsContainer extends Component {
       .on('value', (snapshot) => {
         const val = snapshot.val();
         const newVal = val.map(x => ({ avg: x.avg, value: this.timeToZone(x.value) }));
-        this.setState({ data: drop(2, newVal) });
+        this.setState({ data: drop(this.props.drop, newVal) });
       });
   }
 
@@ -30,7 +34,8 @@ export default class AnalyticsContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="analytics-container">
+        <h1>{this.props.title}</h1>
         <LineChart
           width={900}
           height={300}
@@ -39,7 +44,7 @@ export default class AnalyticsContainer extends Component {
             top: 5, right: 30, left: 20, bottom: 5,
           }}
         >
-          <XAxis interval="preserveStartEnd" dataKey="value" />
+          <XAxis minTickGap={8} interval="preserveStartEnd" dataKey="value" />
           <YAxis label={{ value: 'price', angle: -90 }} />
           <CartesianGrid strokeDasharray="3 3" />
           <Line strokeWidth={3} dot type="basis" dataKey="avg" stroke="#82ca9d" />

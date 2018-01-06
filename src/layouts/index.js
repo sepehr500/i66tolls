@@ -33,6 +33,7 @@ class Header extends Component {
           docked={false}
         >
           <MenuItem containerElement={<Link to="/" />} onClick={this.handleClose}>Home</MenuItem>
+          <MenuItem containerElement={<Link to="/analytics/" />} onClick={this.handleClose}>Analytics</MenuItem>
           <MenuItem containerElement={<Link to="/about/" />} onClick={this.handleClose}>About</MenuItem>
         </Drawer>
       </div>);
