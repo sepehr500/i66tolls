@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { LineChart, XAxis, YAxis, Line, CartesianGrid } from 'recharts';
+import { ResponsiveContainer, LineChart, XAxis, YAxis, Line, CartesianGrid } from 'recharts';
 import { getFirebase } from '../util/utility';
 import { drop } from 'ramda';
 import moment from 'moment';
@@ -29,26 +29,32 @@ export default class AnalyticsContainer extends Component {
 
   timeToZone = (time) => {
     const date = moment().format('YYYY-MM-DD');
-    return moment(moment.utc(`${date} ${time}`).toDate()).format('h:mm');
+
+    const { length } = time;
+    return moment(moment.utc(`${date} ${length === 4 ? `${time}0` : time}`).toDate()).format('h:mm');
   }
 
   render() {
     return (
-      <div className="analytics-container">
+      <div className="chart-contain">
         <h1>{this.props.title}</h1>
-        <LineChart
-          width={900}
-          height={300}
-          data={this.state.data ? this.state.data : []}
-          margin={{
-            top: 5, right: 30, left: 20, bottom: 5,
+        <div className="analytics-container">
+          <ResponsiveContainer width="100%" height={400}>
+            <LineChart
+              data={this.state.data ? this.state.data : []}
+              margin={{
+            top: 5, right: 10, left: 10, bottom: 5,
           }}
-        >
-          <XAxis minTickGap={8} interval="preserveStartEnd" dataKey="value" />
-          <YAxis label={{ value: 'price', angle: -90 }} />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Line strokeWidth={3} dot type="basis" dataKey="avg" stroke="#82ca9d" />
-        </LineChart>
+            >
+              <XAxis minTickGap={8} interval="preserveStartEnd" dataKey="value" />
+              <YAxis label={{ value: 'price', angle: -90 }} />
+              <CartesianGrid strokeDasharray="3 3" />
+              <Line strokeWidth={3} dot type="basis" dataKey="avg" stroke="#82ca9d" />
+            </LineChart>
+
+          </ResponsiveContainer>
+
+        </div>
       </div>
     );
   }

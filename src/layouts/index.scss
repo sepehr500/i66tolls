@@ -5,6 +5,11 @@ h1{
   margin: 0px;
 }
 
+.chart-contain{
+  text-align: center;
+  width: 1000px
+}
+
 body{
   margin: 0px;
   background-color:  rgba(182, 182, 182, 0.23);
@@ -175,6 +180,14 @@ button{
 
   .toll-container{
     width: 100%;
+  }
+
+  .chart-contain{
+    width: 100%;
+  }
+
+  .analytics-container{
+    overflow: scroll;
   }
 
   .header-container{
