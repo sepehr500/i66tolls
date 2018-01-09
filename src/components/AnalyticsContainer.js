@@ -49,7 +49,7 @@ export default class AnalyticsContainer extends Component {
                       }}
             >
               <XAxis minTickGap={8} interval="preserveStartEnd" dataKey="value" />
-              <YAxis label={{ value: 'price', angle: -90 }} />
+              <YAxis label={{ value: 'average price', angle: -90 }} />
               <CartesianGrid strokeDasharray="3 3" />
               <Line strokeWidth={3} dot type="basis" dataKey="avg" stroke="#82ca9d" />
             </LineChart>
