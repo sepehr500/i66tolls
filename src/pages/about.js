@@ -6,7 +6,7 @@ const About = () => (
   <div>
     <h1> About <i>Should I take I66?</i></h1>
     <h3>
-      Should I take I66? Is an open source toll monitoring
+      Should I take I66? Is an <a href="https://github.com/sepehr500/i66tolls"> open source</a> toll monitoring
       app and should be used for estimation purposes only.
     </h3>
     <Divider style={{ marginBottom: '10px' }} />
