@@ -15,6 +15,13 @@ const About = () => (
 
     <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact" />
+
+      <TextField
+        name="email"
+        hintText="email"
+        rows={1}
+        rowsMax={4}
+      />
       <TextField
         name="message"
         hintText="message"

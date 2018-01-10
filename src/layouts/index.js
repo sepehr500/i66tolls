@@ -4,10 +4,12 @@ import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import './index.scss';
 import image from './I66.png';
+import fb from './Facebook.svg';
 
 class Header extends Component {
   constructor(props) {
@@ -19,6 +21,15 @@ class Header extends Component {
 
   handleClose = () => this.setState({ open: false });
 
+  shareButton = () => (
+    <ul className="share-buttons">
+      <li>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fshoulditakei66.today&quote=shoulditakei66" title="Share on Facebook" target="_blank">
+          <img className="icon-style" alt="Share on Facebook" src={fb} />
+        </a>
+      </li>
+    </ul>)
+
   render() {
     return (
       <div className="header-container" >
@@ -26,6 +37,7 @@ class Header extends Component {
           title="Should I take I66?"
           className="app-header"
           onLeftIconButtonClick={this.handleToggle}
+          iconElementRight={<FlatButton label="share" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fshoulditakei66.today&quote=shoulditakei66" />}
         />
         <Drawer
           onRequestChange={open => this.setState({ open })}
