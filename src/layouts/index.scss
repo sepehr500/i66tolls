@@ -5,6 +5,11 @@ h1{
   margin: 0px;
 }
 
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
 .center-text{
   text-align: center;
   margin: 0 -20px;
@@ -175,6 +180,15 @@ button{
   opacity: 0;
   transition: opacity 0.5s;
 } 
+
+.z-index-1{
+  z-index: 1;
+}
+
+.analytics-box{
+  height: 50px;
+  padding-top: 15px;
+}
 
 @media screen and (max-width: 600px){
   .main {
