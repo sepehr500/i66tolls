@@ -4,22 +4,22 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "firebase": "^4.8.0",
-    "gatsby": "^1.9.142",
-    "gatsby-link": "^1.6.32",
+    "firebase": "^4.10.1",
+    "gatsby": "^1.9.214",
+    "gatsby-link": "^1.6.37",
     "gatsby-plugin-favicon": "^2.1.1",
-    "gatsby-plugin-google-analytics": "^1.0.14",
-    "gatsby-plugin-manifest": "^1.0.11",
+    "gatsby-plugin-google-analytics": "^1.0.19",
+    "gatsby-plugin-manifest": "^1.0.14",
     "gatsby-plugin-netlify-cms": "^1.0.9",
-    "gatsby-plugin-offline": "^1.0.12",
+    "gatsby-plugin-offline": "^1.0.14",
     "gatsby-plugin-react-helmet": "^1.0.8",
-    "gatsby-plugin-sass": "^1.0.15",
+    "gatsby-plugin-sass": "^1.0.17",
     "material-ui": "^0.20.0",
-    "moment": "^2.20.0",
+    "moment": "^2.20.1",
     "ramda": "^0.25.0",
     "react-sticky": "^6.0.1",
     "react-transition-group": "^1.2.1",
-    "recharts": "^1.0.0-beta.7"
+    "recharts": "^1.0.0-beta.10"
   },
   "keywords": [
     "gatsby"
@@ -34,11 +34,11 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^4.13.1",
+    "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
-    "prettier": "^1.9.2"
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.10.2"
   }
 }
